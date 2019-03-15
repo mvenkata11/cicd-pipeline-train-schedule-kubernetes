@@ -7,7 +7,7 @@ spec:
   selector:
     app: train-schedule
   ports:
-  - protocals: TCP
+  - protocol: TCP
     port: 8080
     nodePort: 8080
  ---
@@ -20,7 +20,7 @@ spec:
  spec:
    replicas: 2
    selector:
-     metadata:
+     matchLabels:
        app: train-schedule
    template:
      metadata:
