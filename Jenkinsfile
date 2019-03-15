@@ -45,12 +45,8 @@ pipeline {
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
-                kuberneteDeploy{
-                   kubeconfigId: 'kubeconfig',
-                   configs: 'train-schedule-kube.yml',
-                   enableConfigSubstitution: true
-          
-                }
+                kubernetesDeploy configs: 'train-schedule-kube.yml', kubeConfig: [path: ''], kubeconfigId: 'kubeconfig', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+
             }
         }
     }
